@@ -19,6 +19,7 @@ let engineer;
 let intern;
 
 
+//function to ask questions with inquirer
 
 //let employee
   //if manager input, create new manager with data from fields
