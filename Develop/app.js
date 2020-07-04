@@ -1,14 +1,37 @@
+//Dependencies
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-
+//output to html
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+//empty array to be filled with generated employee objects
+const employees = [];
+
+//employee objects
+let manager;
+let engineer;
+let intern;
+
+
+//function to ask questions with inquirer
+
+//let employee
+  //if manager input, create new manager with data from fields
+
+  //else if engineer input, create new manager with data from fields
+
+  //else if intern input, create new manager with data from fields
+
+  //push
+
+  //write to file
+
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -33,3 +56,12 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
+// use tests!
+// Employee class first
+/// types are subclasses
+/// 1 prompt
+/// 1 prompt what kind of team member
+/// another function inquirer.prompt 
+
+///manager.test - calling get office # method, not mentioned in readme
