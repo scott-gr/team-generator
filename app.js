@@ -22,69 +22,95 @@ const teamOutput = (path, data) => {
 
 const askPrompt = () => {
   inquirer.prompt(questions.employeeRoleQ).then((data) => {
-      switch(data.role) {
-        /// test first with manager
-      
-        case 'manager':
-          inquirer.prompt(questions.managerQuestions).then((data) => {
-              if (data.mgrName === '' || data.mgrId === '' || data.mgrEmail === '' || data.mgrOfficeNum === '') {
-                  console.log('Please enter a value for each prompt!');
-                  askPrompt();                        
-              } else {
-                  let manager = new Manager(data.mgrName, data.mgrId, data.mgrEmail, data.mgrOfficeNum);
-                  employees.push(manager);
-                  if (data.confirm) {
-                      askPrompt();
-                  } else {
-                      outputHtml(outputPath, employees);
-                  }
-              }
-          });
-          break;
-        case 'engineer':
-          inquirer.prompt(questions.engineerQuestions).then((data) => {
-              if (data.engName === '' || data.engId === '' || data.engEmail === '' || data.engGithub === '') {
-                  console.log('Please enter a value for each prompt!');
-                  askPrompt();                        
-              } else {
-                  let engineer = new Engineer(data.engName, data.engId, data.engEmail, data.engGithub);
-                  employees.push(engineer);
-                  if (data.confirm) {
-                      askPrompt();
-                  } else {
-                      outputHtml(outputPath, employees);
-                  }
-              }
-          });
-          break;
-        case 'intern':
-          inquirer.prompt(questions.internQuestions).then((data) => {
-              if (data.intName === '' || data.intId === '' || data.intEmail === '' || data.intSchool === '') {
-                  console.log('Please enter a value for each prompt!');
-                  askPrompt();                        
-              } else {
-                  let intern = new Intern(data.intName, data.intId, data.intEmail, data.intSchool);
-                  employees.push(intern);
-                  if (data.confirm) {
-                      askPrompt();
-                  } else {
-                      outputHtml(outputPath, employees);r
-                  }
-              }
-          });
-          break;
-      };
+    switch (data.role) {
+      /// test first with manager
+
+      case 'manager':
+        inquirer.prompt(questions.managerQuestions).then((data) => {
+          if (
+            data.mgrName === '' ||
+            data.mgrId === '' ||
+            data.mgrEmail === '' ||
+            data.mgrOfficeNum === ''
+          ) {
+            console.log('Please enter a value for each prompt!');
+            askPrompt();
+          } else {
+            let manager = new Manager(
+              data.mgrName,
+              data.mgrId,
+              data.mgrEmail,
+              data.mgrOfficeNum
+            );
+            employees.push(manager);
+            if (data.confirm) {
+              askPrompt();
+            } else {
+              outputHtml(outputPath, employees);
+            }
+          }
+        });
+        break;
+      case 'engineer':
+        inquirer.prompt(questions.engineerQuestions).then((data) => {
+          if (
+            data.engName === '' ||
+            data.engId === '' ||
+            data.engEmail === '' ||
+            data.engGithub === ''
+          ) {
+            console.log('Please enter a value for each prompt!');
+            askPrompt();
+          } else {
+            let engineer = new Engineer(
+              data.engName,
+              data.engId,
+              data.engEmail,
+              data.engGithub
+            );
+            employees.push(engineer);
+            if (data.confirm) {
+              askPrompt();
+            } else {
+              outputHtml(outputPath, employees);
+            }
+          }
+        });
+        break;
+      case 'intern':
+        inquirer.prompt(questions.internQuestions).then((data) => {
+          if (
+            data.intName === '' ||
+            data.intId === '' ||
+            data.intEmail === '' ||
+            data.intSchool === ''
+          ) {
+            console.log('Please enter a value for each prompt!');
+            askPrompt();
+          } else {
+            let intern = new Intern(
+              data.intName,
+              data.intId,
+              data.intEmail,
+              data.intSchool
+            );
+            employees.push(intern);
+            if (data.confirm) {
+              askPrompt();
+            } else {
+              outputHtml(outputPath, employees);
+              r;
+            }
+          }
+        });
+        break;
+    }
   });
 };
-
-
-
 
 //else if engineer input, create new manager with data from fields
 
 //else if intern input, create new manager with data from fields
-
-
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
