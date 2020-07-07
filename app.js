@@ -41,22 +41,50 @@ const askPrompt = () => {
               }
           });
           break;
+        case 'manager':
+          inquirer.prompt(questions.managerQuestions).then((data) => {
+              if (data.mgrName === '' || data.mgrId === '' || data.mgrEmail === '' || data.mgrOfficeNum === '') {
+                  console.log('Please enter a value for each prompt!');
+                  askPrompt();                        
+              } else {
+                  let manager = new Manager(data.mgrName, data.mgrId, data.mgrEmail, data.mgrOfficeNum);
+                  employees.push(manager);
+                  if (data.confirm) {
+                      askPrompt();
+                  } else {
+                      outputHtml(outputPath, employees);
+                  }
+              }
+          });
+          break;
+        case 'manager':
+          inquirer.prompt(questions.managerQuestions).then((data) => {
+              if (data.mgrName === '' || data.mgrId === '' || data.mgrEmail === '' || data.mgrOfficeNum === '') {
+                  console.log('Please enter a value for each prompt!');
+                  askPrompt();                        
+              } else {
+                  let manager = new Manager(data.mgrName, data.mgrId, data.mgrEmail, data.mgrOfficeNum);
+                  employees.push(manager);
+                  if (data.confirm) {
+                      askPrompt();
+                  } else {
+                      outputHtml(outputPath, employees);
+                  }
+              }
+          });
+          break;
+      };
+  });
+};
 
-//function to ask questions with inquirer
 
-//let employee
-//if manager input, create new manager with data from fields
+
 
 //else if engineer input, create new manager with data from fields
 
 //else if intern input, create new manager with data from fields
 
-//push
 
-//write to file
-
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
