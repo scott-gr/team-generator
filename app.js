@@ -72,7 +72,7 @@ const askPrompt = () => {
             if (data.confirm) {
               askPrompt();
             } else {
-              outputHtml(outputPath, employees);
+              teamOutput(outputPath, employees);
             }
           }
         });
@@ -98,7 +98,7 @@ const askPrompt = () => {
             if (data.confirm) {
               askPrompt();
             } else {
-              outputHtml(outputPath, employees);
+              teamOutput(outputPath, employees);
               r;
             }
           }
@@ -107,6 +107,7 @@ const askPrompt = () => {
     }
   });
 };
+askPrompt()
 
 //else if engineer input, create new manager with data from fields
 
