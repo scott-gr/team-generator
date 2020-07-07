@@ -41,14 +41,14 @@ const askPrompt = () => {
               }
           });
           break;
-        case 'manager':
-          inquirer.prompt(questions.managerQuestions).then((data) => {
-              if (data.mgrName === '' || data.mgrId === '' || data.mgrEmail === '' || data.mgrOfficeNum === '') {
+        case 'engineer':
+          inquirer.prompt(questions.engineerQuestions).then((data) => {
+              if (data.engName === '' || data.engId === '' || data.engEmail === '' || data.engGithub === '') {
                   console.log('Please enter a value for each prompt!');
                   askPrompt();                        
               } else {
-                  let manager = new Manager(data.mgrName, data.mgrId, data.mgrEmail, data.mgrOfficeNum);
-                  employees.push(manager);
+                  let engineer = new Engineer(data.engName, data.engId, data.engEmail, data.engGithub);
+                  employees.push(engineer);
                   if (data.confirm) {
                       askPrompt();
                   } else {
@@ -57,18 +57,18 @@ const askPrompt = () => {
               }
           });
           break;
-        case 'manager':
-          inquirer.prompt(questions.managerQuestions).then((data) => {
-              if (data.mgrName === '' || data.mgrId === '' || data.mgrEmail === '' || data.mgrOfficeNum === '') {
+        case 'intern':
+          inquirer.prompt(questions.internQuestions).then((data) => {
+              if (data.intName === '' || data.intId === '' || data.intEmail === '' || data.intSchool === '') {
                   console.log('Please enter a value for each prompt!');
                   askPrompt();                        
               } else {
-                  let manager = new Manager(data.mgrName, data.mgrId, data.mgrEmail, data.mgrOfficeNum);
-                  employees.push(manager);
+                  let intern = new Intern(data.intName, data.intId, data.intEmail, data.intSchool);
+                  employees.push(intern);
                   if (data.confirm) {
                       askPrompt();
                   } else {
-                      outputHtml(outputPath, employees);
+                      outputHtml(outputPath, employees);r
                   }
               }
           });
