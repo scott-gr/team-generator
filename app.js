@@ -107,7 +107,6 @@ const askPrompt = () => {
     }
   });
 };
-
 askPrompt()
 
 //else if engineer input, create new manager with data from fields
