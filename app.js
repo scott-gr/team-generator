@@ -5,11 +5,13 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
+const questions = require('./lib/questions');
+const render = require('./lib/htmlRenderer');
 //output to html
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
-const outputPath = path.join(OUTPUT_DIR, 'team.html');
+const outputPath = path.join(OUTPUT_DIR, 'team-output.html');
 
-const render = require('./lib/htmlRenderer');
+
 //empty array to be filled with generated employee objects
 const employees = [];
 
