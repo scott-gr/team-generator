@@ -23,6 +23,24 @@ const teamOutput = (path, data) => {
 const askPrompt = () => {
   inquirer.prompt(questions.employeeRoleQ).then((data) => {
       switch(data.role) {
+        /// test first with manager
+      
+        case 'manager':
+          inquirer.prompt(questions.managerQuestions).then((data) => {
+              if (data.mgrName === '' || data.mgrId === '' || data.mgrEmail === '' || data.mgrOfficeNum === '') {
+                  console.log('Please enter a value for each prompt!');
+                  askPrompt();                        
+              } else {
+                  let manager = new Manager(data.mgrName, data.mgrId, data.mgrEmail, data.mgrOfficeNum);
+                  employees.push(manager);
+                  if (data.confirm) {
+                      askPrompt();
+                  } else {
+                      outputHtml(outputPath, employees);
+                  }
+              }
+          });
+          break;
 
 //function to ask questions with inquirer
 
