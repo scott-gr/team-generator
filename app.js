@@ -72,7 +72,7 @@ const askPrompt = () => {
             if (data.confirm) {
               askPrompt();
             } else {
-              outputHtml(outputPath, employees);
+              teamOutput(outputPath, employees);
             }
           }
         });
@@ -98,7 +98,7 @@ const askPrompt = () => {
             if (data.confirm) {
               askPrompt();
             } else {
-              outputHtml(outputPath, employees);
+              teamOutput(outputPath, employees);
               r;
             }
           }
