@@ -1,12 +1,12 @@
 //Dependencies
-const Manager = require('./lib/Manager');
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern');
+const Manager = require('./Develop/lib/Manager');
+const Engineer = require('./Develop/lib/Engineer');
+const Intern = require('./Develop/lib/Intern');
 const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
-const questions = require('./lib/questions');
-const render = require('./lib/htmlRenderer');
+const questions = require('./Develop/lib/questions');
+const render = require('./Develop/lib/htmlRenderer');
 //output to html
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
 const outputPath = path.join(OUTPUT_DIR, 'team-output.html');
@@ -15,7 +15,7 @@ const outputPath = path.join(OUTPUT_DIR, 'team-output.html');
 //empty array to be filled with generated employee objects
 const employees = [];
 
-const teamOutput = (path, data) => {
+const outputHtml = (path, data) => {
   fs.writeFile(path, render(data), (error) => {
     if (error) throw error;
     else console.log('Output HTML success');
@@ -74,7 +74,7 @@ const askPrompt = () => {
             if (data.confirm) {
               askPrompt();
             } else {
-              teamOutput(outputPath, employees);
+              outputHtml(outputPath, employees);
             }
           }
         });
@@ -100,7 +100,7 @@ const askPrompt = () => {
             if (data.confirm) {
               askPrompt();
             } else {
-              teamOutput(outputPath, employees);
+              outputHtml(outputPath, employees);
               r;
             }
           }
