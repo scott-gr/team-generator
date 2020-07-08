@@ -15,7 +15,7 @@ const outputPath = path.join(OUTPUT_DIR, 'team-output.html');
 //empty array to be filled with generated employee objects
 const employees = [];
 
-const teamOutput = (path, data) => {
+const outputHtml = (path, data) => {
   fs.writeFile(path, render(data), (error) => {
     if (error) throw error;
     else console.log('Output HTML success');
@@ -74,7 +74,7 @@ const askPrompt = () => {
             if (data.confirm) {
               askPrompt();
             } else {
-              teamOutput(outputPath, employees);
+              outputHtml(outputPath, employees);
             }
           }
         });
@@ -100,7 +100,7 @@ const askPrompt = () => {
             if (data.confirm) {
               askPrompt();
             } else {
-              teamOutput(outputPath, employees);
+              outputHtml(outputPath, employees);
               r;
             }
           }
