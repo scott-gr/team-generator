@@ -20,6 +20,7 @@ Clone github repo and run `npm install`
 After installation, run `node app.js` in the command line while in the root directory. Answer the prompts to dynamically generate an HTML page with your team's details.
 
 ## Demo
+https://drive.google.com/file/d/1AHDBdu8aA2xaWPWfsdGX58BBJTE6KmMM/view
 
 ## Contributors
 I am the sole contributor to developing this project. 
